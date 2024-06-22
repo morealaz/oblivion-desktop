@@ -255,11 +255,7 @@ if (!gotTheLock) {
             const iconPath = getAssetPath(`img/status/${status}.png`);
             const nativeImageIcon = nativeImage.createFromPath(iconPath);
             if (!nativeImageIcon.isEmpty()) {
-                if (process.platform === 'darwin') {
-                    return nativeImageIcon.resize({ width: 16, height: 16 });
-                } else {
-                    return nativeImageIcon;
-                }
+                return nativeImageIcon.resize({ width: 16, height: 16 });
             } else {
                 console.error(`Failed to load trayIcon: ${iconPath}`);
                 return null;
